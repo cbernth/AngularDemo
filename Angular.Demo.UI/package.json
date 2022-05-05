@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "prestart": "node aspnetcore-https"
+    "prestart": "node aspnetcore-https",
+    "dev:ssr": "ng run Angular.Demo.UI:serve-ssr --open",
+    "serve:ssr": "node dist/Angular.Demo.UI/server/main.js",
+    "build:ssr": "ng build && ng run Angular.Demo.UI:server",
+    "prerender": "ng run Angular.Demo.UI:prerender"
   },
   "private": true,
   "dependencies": {
@@ -18,16 +22,21 @@
     "@angular/forms": "~13.3.0",
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
+    "@angular/platform-server": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@nguniversal/express-engine": "13.1.1",
+    "express": "^4.15.2",
+    "jest-editor-support": "*",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "jest-editor-support": "*"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.3",
     "@angular/cli": "~13.3.3",
     "@angular/compiler-cli": "~13.3.0",
+    "@nguniversal/builders": "^13.1.1",
+    "@types/express": "^4.17.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~4.0.0",

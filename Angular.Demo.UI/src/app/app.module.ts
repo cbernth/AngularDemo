@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule.withServerTransition({ appId: 'serverApp' }), HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

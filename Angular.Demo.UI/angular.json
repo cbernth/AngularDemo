@@ -139,7 +139,10 @@
               "serverTarget": "Angular.Demo.UI:server:production"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "src/proxy.conf.js"
+          }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",

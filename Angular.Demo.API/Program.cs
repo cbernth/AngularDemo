@@ -7,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<AppSettingsConfig>(builder.Configuration);
 builder.Services.AddScoped(sp => sp.GetRequiredService<IOptionsSnapshot<AppSettingsConfig>>().Value);
+builder.Services.AddResponseCompression(options =>
+{
+	options.EnableForHttps = true;
+});
 // Enable CORS from our local node
 builder.Services.AddCors(options =>
 {
@@ -25,6 +29,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseResponseCompression();
 app.UseCors("AllowNodeLocalhost");
 if (app.Environment.IsDevelopment())
 {

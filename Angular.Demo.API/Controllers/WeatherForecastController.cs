@@ -2,9 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Angular.Demo.API.Controllers
 {
-	[ApiController]
-	[Route("api/[controller]")]
-	public class WeatherForecastController : ControllerBase
+
+	public class WeatherForecastController : ApiControllerBase
 	{
 		private static readonly string[] Summaries = new[]
 		{
@@ -20,7 +19,7 @@ namespace Angular.Demo.API.Controllers
 			_appSettings = appSettingsConfig;
 		}
 
-		[HttpGet(Name = "GetWeatherForecast")]
+		[HttpGet]
 		public IEnumerable<WeatherForecast> Get()
 		{
 			return Enumerable.Range(1, 5).Select(index => new WeatherForecast

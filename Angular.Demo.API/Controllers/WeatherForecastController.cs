@@ -12,10 +12,12 @@ namespace Angular.Demo.API.Controllers
 		};
 
 		private readonly ILogger<WeatherForecastController> _logger;
+		private readonly AppSettingsConfig _appSettings;
 
-		public WeatherForecastController(ILogger<WeatherForecastController> logger)
+		public WeatherForecastController(ILogger<WeatherForecastController> logger, AppSettingsConfig appSettingsConfig)
 		{
 			_logger = logger;
+			_appSettings = appSettingsConfig;
 		}
 
 		[HttpGet(Name = "GetWeatherForecast")]

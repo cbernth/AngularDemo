@@ -1,7 +1,12 @@
+using Angular.Demo.API;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.Configure<AppSettingsConfig>(builder.Configuration);
+builder.Services.AddScoped(sp => sp.GetRequiredService<IOptionsSnapshot<AppSettingsConfig>>().Value);
 // Enable CORS from our local node
 builder.Services.AddCors(options =>
 {

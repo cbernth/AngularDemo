@@ -25,5 +25,9 @@
 <button (click)="getWeatherForecast()">Get Weather Forcast</button>
 <br />
 <br />
-<b>appConfigService.appConfig</b><br />
+<b>appConfigService.appConfig</b>
+<br />
 {{appConfigService.appConfig | json}}
+
+<hr />
+<a class="button" routerLink="/">Home</a> | <a class="button" routerLink="/Test1" routerLinkActive="activebutton">Test route 1</a> | <a class="button" routerLink="/Test2" routerLinkActive="activebutton">Test route 2</a>

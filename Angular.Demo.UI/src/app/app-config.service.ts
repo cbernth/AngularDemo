@@ -23,8 +23,8 @@ export class AppConfigService {
       (resolve, reject) => {
         forkJoin({
           appConfig: this.http.get<AppConfigFile>(hostUrl + '/assets/appConfig.json')
-					// add parallel async requests here in the form:
-					// otherRequest: this.http.get<OtherRequest>(apiUrl + '/Other/Get')
+          // add parallel async requests here in the form:
+          // otherRequest: this.http.get<OtherRequest>(apiUrl + '/Other/Get')
           // The forkJoin will resolve when the last of the requests have resolved
         }).subscribe(
           result => {
@@ -64,6 +64,7 @@ export class AppConfigService {
 }
 
 export interface AppConfigFile {
+  readonly appTitle: string,
   readonly somestring: string,
   readonly someint: number
 }

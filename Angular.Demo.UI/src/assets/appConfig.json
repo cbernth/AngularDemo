@@ -1,4 +1,5 @@
 {
+  "appTitle":  "Angular Demo",
   "somestring": "Hello",
-  "someint":  55
+  "someint": 55
 }

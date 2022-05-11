@@ -1,7 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AppConfigService } from './app-config.service';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -9,9 +10,24 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }), HttpClientModule
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    HttpClientModule,
+    CommonModule
   ],
-  providers: [],
+  providers: [
+    AppConfigService,
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [AppConfigService],
+      useFactory: (appConfigService: AppConfigService) => {
+        return () => {
+          //Make sure the method returns a promise!
+          return appConfigService.loadAppConfig();
+        };
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

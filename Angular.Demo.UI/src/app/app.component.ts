@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { environment } from './../environments/environment';
+import { AppConfigService } from './app-config.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +8,22 @@ import { environment } from './../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public forecasts?: WeatherForecast[];
 
-  constructor(http: HttpClient) {
-    console.log('environment', environment);
-    http.get<WeatherForecast[]>(environment.apiUrl + '/WeatherForecast/Get').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
+  public forecasts?: WeatherForecast[];
+  public title = 'Angular.Demo.UI';
+
+  constructor(private http: HttpClient, public appConfigService: AppConfigService) {
+    console.log('appConfigService', appConfigService.appConfig);
+    this.getWeatherForecast();
   }
 
-  title = 'Angular.Demo.UI';
+  public getWeatherForecast(): void {
+    this.http.get<WeatherForecast[]>(this.appConfigService.appConfig?.apiUrl + '/WeatherForecast/Get').subscribe(
+      result => this.forecasts = result,
+      error => console.error(error)
+    );
+  }
+
 }
 
 interface WeatherForecast {

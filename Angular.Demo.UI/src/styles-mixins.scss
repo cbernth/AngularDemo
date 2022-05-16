@@ -1,0 +1,14 @@
+@mixin button-basics($box-shadow-color, $inset-color, $gradient-color-from, $gradient-color-to, $color) {
+  box-shadow: inset 0 1px 0 0 $box-shadow-color;
+  background: $inset-color linear-gradient(to bottom, $gradient-color-from 5%, $gradient-color-to 100%);
+  border-radius: 6px;
+  border: 1px solid $color;
+  display: inline-block;
+  cursor: pointer;
+  color: $color;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  outline: 0;
+}

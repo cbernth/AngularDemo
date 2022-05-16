@@ -1,0 +1,23 @@
+@import 'styles-variables.scss';
+@import 'styles-mixins.scss';
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+.menu {
+  background-color: $menu-color-back;
+}
+
+.button {
+  @include button-basics($button-box-shadow-color, $button-inset-color, $button-gradient-color-from, $button-gradient-color-to, $button-color);
+  font-family: Arial, sans-serif;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+.activebutton {
+  @include button-basics($button-activated-box-shadow-color, $button-activated-inset-color, $button-activated-gradient-color-from, $button-activated-gradient-color-to, $button-activated-color);
+  font-family: Arial, sans-serif;
+  text-shadow: 0 1px 0 #528ecc;
+}

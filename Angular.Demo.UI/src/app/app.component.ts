@@ -13,12 +13,10 @@ import { AppConfigService } from './app-config.service';
 })
 export class AppComponent implements OnInit {
 
-  public forecasts?: WeatherForecast[];
   public title = 'Angular.Demo.UI';
 
   constructor(private http: HttpClient, public appConfigService: AppConfigService, private router: Router, private titleService: Title) {
     console.log('appConfigService', appConfigService.appConfig);
-    this.getWeatherForecast();
   }
 
   ngOnInit() {
@@ -40,18 +38,4 @@ export class AppComponent implements OnInit {
       });
   }
 
-  getWeatherForecast(): void {
-    this.http.get<WeatherForecast[]>(this.appConfigService.appConfig?.apiUrl + '/WeatherForecast/Get').subscribe(
-      result => this.forecasts = result,
-      error => console.error(error)
-    );
-  }
-
-}
-
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
 }

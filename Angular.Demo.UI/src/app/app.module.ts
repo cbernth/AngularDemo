@@ -5,10 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppConfigService } from './app-config.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent,
+    WeatherForecastComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

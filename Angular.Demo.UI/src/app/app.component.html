@@ -1,33 +1,13 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<div class="menu">
+  <h1>Angular Demo Quick Menu</h1>
+  <h2>appConfigService.appConfig</h2>
+  {{appConfigService.appConfig | json}}
 
-<p>This component demonstrates fetching data from the server.</p>
-
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
-
-<table *ngIf="forecasts">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.date }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
-    </tr>
-  </tbody>
-</table>
-<button (click)="getWeatherForecast()">Get Weather Forcast</button>
-<br />
-<br />
-<b>appConfigService.appConfig</b>
-<br />
-{{appConfigService.appConfig | json}}
-
-<hr />
-<a class="button" routerLink="/">Home</a> | <a class="button" routerLink="/Test1" routerLinkActive="activebutton">Test route 1</a> | <a class="button" routerLink="/Test2" routerLinkActive="activebutton">Test route 2</a>
+  <h2>Navigation</h2>
+  <a class="button" routerLink="/">Home</a> |
+  <a class="button" routerLink="/Test1" routerLinkActive="activebutton">Test route 1</a> |
+  <a class="button" routerLink="/Test2" routerLinkActive="activebutton">Test route 2</a> |
+  <a class="button" routerLink="/Test3" routerLinkActive="activebutton">Test route 3</a>
+  <hr />
+</div>
+<router-outlet></router-outlet>
